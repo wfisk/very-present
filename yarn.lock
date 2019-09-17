@@ -2107,7 +2107,7 @@ lower-case@^1.1.1:
   resolved "https://registry.yarnpkg.com/lower-case/-/lower-case-1.1.4.tgz#9a2cabd1b9e8e0ae993a4bf7d5875c39c42e8eac"
   integrity sha1-miyr0bno4K6ZOkv31YdcOcQujqw=
 
-lru-cache@^4.0.1:
+lru-cache@^4.0.1, lru-cache@^4.1.1:
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.5.tgz#8bbe50ea85bed59bc9e33dcab8235ee9bcf443cd"
   integrity sha512-sWZlbEP2OsHNkXrMl5GYk/jKk70MBng6UU4YI/qGDYbgf6YbP4EvmqISbXCoJiRKs+1bSpFHVgQxvJ17F2li5g==
@@ -2407,6 +2407,13 @@ once@^1.3.0:
   integrity sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
   dependencies:
     wrappy "1"
+
+onigasm@^2.2.1:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/onigasm/-/onigasm-2.2.2.tgz#0f853152278bf0da5b3d5be728d5218e472d03ca"
+  integrity sha512-TQTMk+RmPYx4sGzNAgV0q7At7PABDNHVqZBlC4aRXHg8hpCdemLOF0qq0gUCjwUbc7mhJMBOo3XpTRYwyr45Gw==
+  dependencies:
+    lru-cache "^4.1.1"
 
 os-homedir@^1.0.0:
   version "1.0.2"
@@ -3342,6 +3349,31 @@ shell-quote@^1.6.1:
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
 
+shiki-languages@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/shiki-languages/-/shiki-languages-0.1.5.tgz#e3a7be2c4635b77aa84404a0b9937aa5316e7226"
+  integrity sha512-Yj7F6SxUhoCdgeXipBUGHkHSm1jHFwkf75LzJKtP0LekCPwTaPUhK5KL+rAxxZxyyv4y/CTmLmIAqvoq3L+XfA==
+  dependencies:
+    vscode-textmate "https://github.com/octref/vscode-textmate"
+
+shiki-themes@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/shiki-themes/-/shiki-themes-0.1.5.tgz#522a0d0e450316abbc10914f543e6eb0cc515f33"
+  integrity sha512-gti5xOV8f2R3EL1ULcpqarOHCNgnGds2saWc7k40ZBOtQBrQQ8na+hKwXASWZu7rL9+/RCr2z+Lf+UR7C71kRA==
+  dependencies:
+    json5 "^2.1.0"
+    vscode-textmate "https://github.com/octref/vscode-textmate"
+
+shiki@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/shiki/-/shiki-0.1.5.tgz#0d5f90b671e985e6254cd91e30b85b51dbb07a82"
+  integrity sha512-vczxxest2VCzqyAMtqs91vauJ1d3MpIduIlzIH9DZg/8+zRwB4uooOHE1nUgg02WaiX0NuIIVQBFYB4GDXe4fw==
+  dependencies:
+    onigasm "^2.2.1"
+    shiki-languages "^0.1.5"
+    shiki-themes "^0.1.5"
+    vscode-textmate "https://github.com/octref/vscode-textmate"
+
 shimport@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/shimport/-/shimport-1.0.1.tgz#32ea5637e7707fdfa9037516f8c2a97786fc9031"
@@ -3808,6 +3840,10 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+"vscode-textmate@https://github.com/octref/vscode-textmate":
+  version "4.0.1"
+  resolved "https://github.com/octref/vscode-textmate#e65aabe2227febda7beaad31dd0fca1228c5ddf3"
 
 which-module@^1.0.0:
   version "1.0.0"
