@@ -7,6 +7,13 @@ import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 
+import alias from 'rollup-plugin-alias';
+import json from 'rollup-plugin-json';
+import postcss from 'rollup-plugin-postcss';
+import autoPreprocess from 'svelte-preprocess';
+
+
+
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
@@ -53,7 +60,17 @@ export default {
 
 			!dev && terser({
 				module: true
-			})
+      }),
+      
+      alias({
+        resolve: [ '.js', '.json', '.scss', '.svelte' ],
+        entries:[
+          { find: /^src/, replacement: __dirname + '/src' } 
+        ],
+      }),
+      json(),
+
+
 		],
 
 		onwarn,
@@ -74,7 +91,17 @@ export default {
 			resolve({
 				dedupe
 			}),
-			commonjs()
+      commonjs(),
+
+      
+      alias({
+        resolve: [ '.js', '.json', '.scss', '.svelte' ],
+        entries:[
+          { find: /^src/, replacement: __dirname + '/src' } 
+        ],
+      }),
+      json(),
+
 		],
 		external: Object.keys(pkg.dependencies).concat(
 			require('module').builtinModules || Object.keys(process.binding('natives'))
