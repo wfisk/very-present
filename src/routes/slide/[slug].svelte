@@ -24,7 +24,6 @@
     page.subscribe( ({ params }) => { 
       priorSlug = currentSlug;
       currentSlug = params.slug;
-      console.log({ priorSlug, currentSlug });
     } )
 
     // export let number = 1;

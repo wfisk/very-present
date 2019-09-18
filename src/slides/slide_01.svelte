@@ -1,5 +1,13 @@
 <script>
+  import { onMount } from 'svelte';
   import { fade, fly, slide, scale, draw, crossfade } from 'svelte/transition';
+  //import Prism from 'prismjs';
+
+  let style='p { color: #006e51; }';
+
+  onMount( function(){
+    //Prism.highlightAll();
+  });
 
 </script>
 
@@ -14,10 +22,12 @@
 
     <p>This is the 'about' page. There's not much here.</p>
 
-    <pre class="shiki">
-        <code>
+    <pre>
+        <code class="language-js">
           let x = 5;
        </code>
     </pre>
     
+    <pre><code class="language-css match-braces rainbow-braces">{style}</code></pre>
+
 </div>
