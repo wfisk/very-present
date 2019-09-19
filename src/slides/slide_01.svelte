@@ -1,13 +1,13 @@
 <script>
   import { onMount } from 'svelte';
   import { fade, fly, slide, scale, draw, crossfade } from 'svelte/transition';
-  //import Prism from 'prismjs';
+  import Prism from 'prismjs';
+  onMount( function(){
+    Prism.highlightAll();
+  });
 
   let style='p { color: #006e51; }';
 
-  onMount( function(){
-    //Prism.highlightAll();
-  });
 
 </script>
 

@@ -38,11 +38,13 @@
     function onKeydown( event ) {
       if ( event.keyCode === 33 ) {
         console.log('pageup');
-        goto('slide/2');
+        number = number - 1;
+        goto(`slide/${ (number - 1 ) % 3 + 1}`);
       }
       else if ( event.keyCode === 34 ) {
         console.log('pagedown');
-        goto('slide/3');
+        number = number + 1;
+        goto(`slide/${ (number - 1 ) % 3 + 1}`);
       }
     }
   </script>
