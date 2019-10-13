@@ -14,6 +14,7 @@
   import AboutPage from 'src/pages/About.svelte';
   import BlogPage from 'src/pages/Blog.svelte';
   import BlogArticlePage from 'src/pages/BlogArticle.svelte';
+  import ChartPage from 'src/pages/Chart.svelte';
   import IndexPage from 'src/pages/Index.svelte';
   import MorePage from 'src/pages/More.svelte';
   import NotFoundPage from 'src/pages/NotFound.svelte';
@@ -26,6 +27,7 @@
     "/about":     AboutPage,
     "/blog/:slug":  BlogArticlePage,
     "/blog":      BlogPage,
+    "/chart":     ChartPage,
     "/more":      MorePage,
     '*':          NotFoundPage,
   };

@@ -43,5 +43,7 @@
 	<img out:send="{{key: 'borat'}}" in:receive="{{key: 'borat'}}" alt='meow' src='meow.png'>
 </h1>
 
-<p out:send="{{key: 'text'}}" in:receive="{{key: 'text'}}"><strong>Try editing this file (src/routes/about.svelte) to test live reloading.</strong></p>
+<p out:send="{{key: 'text'}}" in:receive="{{key: 'text'}}">
+  <strong>Try editing this file (src/routes/about.svelte) to test live reloading.</strong>
+</p>
 </main>

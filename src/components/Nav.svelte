@@ -56,9 +56,7 @@
 		<li><a class='{path === "/" ? "selected" : ""}' href='#/'>home</a></li>
 		<li><a class='{path === "/about" ? "selected" : ""}' href='#/about'>about</a></li>
 		<li><a class='{path === "/more" ? "selected" : ""}' href='#/more'>more</a></li>
-
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li><a rel=prefetch class='{path === "/blog" ? "selected" : ""}' href='#/blog'>blog</a></li>
+    <li><a class='{path === "/blog" ? "selected" : ""}' href='#/blog'>blog</a></li>
+		<li><a class='{path === "/chart" ? "selected" : ""}' href='#/chart'>chart</a></li>
 	</ul>
 </nav>

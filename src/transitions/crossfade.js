@@ -34,7 +34,7 @@ import {
 
 import { crossfade } from "svelte/transition";
 const [send, receive] = crossfade({
-  easing: elasticOut,
+  easing: cubicOut,
   duration(d){ return Math.sqrt(d * 50000)},
 
   fallback(node, params) {
