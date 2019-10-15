@@ -12,6 +12,7 @@
   import Nav from 'src/components/Nav.svelte';
 
   import AboutPage from 'src/pages/About.svelte';
+  import AnimationPage from 'src/pages/Animation.svelte';
   import BlogPage from 'src/pages/Blog.svelte';
   import BlogArticlePage from 'src/pages/BlogArticle.svelte';
   import ChartPage from 'src/pages/Chart.svelte';
@@ -25,6 +26,7 @@
     // Exact path
     '/':          IndexPage,
     "/about":     AboutPage,
+    "/animation":  AnimationPage,
     "/blog/:slug":  BlogArticlePage,
     "/blog":      BlogPage,
     "/chart":     ChartPage,

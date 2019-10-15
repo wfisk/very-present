@@ -58,5 +58,6 @@
 		<li><a class='{path === "/more" ? "selected" : ""}' href='#/more'>more</a></li>
     <li><a class='{path === "/blog" ? "selected" : ""}' href='#/blog'>blog</a></li>
 		<li><a class='{path === "/chart" ? "selected" : ""}' href='#/chart'>chart</a></li>
+		<li><a class='{path === "/animation" ? "selected" : ""}' href='#/animation'>animation</a></li>
 	</ul>
 </nav>
