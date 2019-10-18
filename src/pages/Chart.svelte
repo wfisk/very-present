@@ -7,8 +7,8 @@
 	const xTicks = [1980, 1990, 2000, 2010];
 	const padding = { top: 20, right: 15, bottom: 20, left: 25 };
 
-	let width = 500;
-	let height = 200;
+	let width = 1000;
+	let height = 1000;
 
 	$: xScale = scaleLinear()
 		.domain([minX, maxX])
@@ -28,52 +28,95 @@
 	}
 </script>
 
-<h2>Arctic sea ice minimum</h2>
+<div class="chart-container">
+  <div class="header">
+    <h2 class="title is-2">Arctic sea ice minimum</h2>
+  </div>
 
-<div class="chart" bind:clientWidth={width} bind:clientHeight={height}>
-	<svg>
-		<!-- y axis -->
-		<g class="axis y-axis" transform="translate(0, {padding.top})">
-			{#each yTicks as tick}
-				<g class="tick tick-{tick}" transform="translate(0, {yScale(tick) - padding.bottom})">
-					<line x2="100%"></line>
-					<text y="-4">{tick} {tick === 8 ? ' million sq km' : ''}</text>
-				</g>
-			{/each}
-		</g>
+  
+  <div class="chart">
+    <svg viewbox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
+      <!-- y axis -->
+      <g class="axis y-axis" transform="translate(0, {padding.top})">
+        {#each yTicks as tick}
+          <g class="tick tick-{tick}" transform="translate(0, {yScale(tick) - padding.bottom})">
+            <line x2="100%"></line>
+            <text y="-4">{tick} {tick === 8 ? ' million sq km' : ''}</text>
+          </g>
+        {/each}
+      </g>
 
-		<!-- x axis -->
-		<g class="axis x-axis">
-			{#each xTicks as tick}
-				<g class="tick tick-{ tick }" transform="translate({xScale(tick)},{height})">
-					<line y1="-{height}" y2="-{padding.bottom}" x1="0" x2="0"></line>
-					<text y="-2">{width > 380 ? tick : formatMobile(tick)}</text>
-				</g>
-			{/each}
-		</g>
+      <!-- x axis -->
+      <g class="axis x-axis">
+        {#each xTicks as tick}
+          <g class="tick tick-{ tick }" transform="translate({xScale(tick)},{height})">
+            <line y1="-{height}" y2="-{padding.bottom}" x1="0" x2="0"></line>
+            <text y="-2">{width > 380 ? tick : formatMobile(tick)}</text>
+          </g>
+        {/each}
+      </g>
 
-		<!-- data -->
-		<path class="path-area" d={area}></path>
-		<path class="path-line" d={path}></path>
-	</svg>
+      <!-- data -->
+      <path class="path-area" d={area}></path>
+      <path class="path-line" d={path}></path>
+    </svg>
+  </div>
+
+  <div class="footer">
+    <p>Average September extent. Source: <a href='https://climate.nasa.gov/vital-signs/arctic-sea-ice/'>NSIDC/NASA</a></p>
+  </div>
+
 </div>
 
-<p>Average September extent. Source: <a href='https://climate.nasa.gov/vital-signs/arctic-sea-ice/'>NSIDC/NASA</a></p>
 
 <style>
-	.chart, h2, p {
+  :global(body) {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  :global(.container-fluid) {
+    flex: 1 1 auto;
+  }
+
+  .chart-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .header {
+  }
+
+  .chart {
+    flex: 1 1 auto;
+    margin: 1rem 1.6rem;
+    position: relative;
+  }
+
+  .chart svg {
+		position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .footer {
+  }  
+
+
+
+	h2, p {
 		width: 100%;
 		max-width: 500px;
 		margin-left: auto;
 		margin-right: auto;
 	}
 
-	svg {
-		position: relative;
-		width: 100%;
-		height: 200px;
-		overflow: visible;
-	}
+
+
 
 	.tick {
 		font-size: .725em;

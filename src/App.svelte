@@ -41,7 +41,9 @@
 </script>
 
 <style global lang="scss" >
-  /* @import "styles/global.scss"; */
+  @import "styles/global.scss"; 
+
+  
 	main {
 	  max-width: 56em;
 	  background-color: white;
