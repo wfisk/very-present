@@ -1,14 +1,17 @@
 <script>
+  import { onMount } from "svelte";
+  import { draw,fade } from "svelte/transition";
+  import { cubicInOut, quintOut } from "svelte/easing";
+  import { scaleLinear } from 'd3-scale';
   import { send, receive } from "src/transitions/crossfade";
   import points from 'src/datasets/arctic_sea_ice.json';
-  import { scaleLinear } from 'd3-scale';
-
+  
 	const yTicks = [0, 2, 4, 6, 8];
 	const xTicks = [1980, 1990, 2000, 2010];
 	const padding = { top: 20, right: 15, bottom: 20, left: 25 };
 
-	let width = 1000;
-	let height = 1000;
+	const width = 800;
+	const height = 600;
 
 	$: xScale = scaleLinear()
 		.domain([minX, maxX])
@@ -26,6 +29,12 @@
 	function formatMobile (tick) {
 		return "'" + tick % 100;
 	}
+
+  let lineVisible = false;
+  onMount( function(){
+    lineVisible = false;
+    setTimeout(() => {lineVisible = true}, 1000);
+  });
 </script>
 
 <div class="chart-container">
@@ -35,7 +44,7 @@
 
   
   <div class="chart">
-    <svg viewbox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
+    <svg viewbox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
       <!-- y axis -->
       <g class="axis y-axis" transform="translate(0, {padding.top})">
         {#each yTicks as tick}
@@ -57,8 +66,10 @@
       </g>
 
       <!-- data -->
-      <path class="path-area" d={area}></path>
-      <path class="path-line" d={path}></path>
+      {#if lineVisible}
+        <path class="path-line" d={path} in:draw="{{duration:4000,easing:cubicInOut}}"></path>
+        <path class="path-area" d={area} in:fade={{duration:3000,delay:1000,easing:cubicInOut}}></path>
+        {/if}
     </svg>
   </div>
 
