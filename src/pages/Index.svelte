@@ -44,7 +44,7 @@
 
 <main>
 <h1>
-  <span out:send="{{key: 'title'}}" in:receive="{{key: 'title'}}">INDEX PAGE</span>
+<span out:send="{{key: 'title'}}" in:receive="{{key: 'title'}}">INDEX PAGE</span>
 </h1>
 
 <figure>

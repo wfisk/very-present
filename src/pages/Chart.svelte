@@ -67,7 +67,7 @@
 
       <!-- data -->
       {#if lineVisible}
-        <path class="path-line" d={path} in:draw="{{duration:4000,easing:cubicInOut}}"></path>
+        <path class="path-line" d={path} in:draw="{{duration:4000,easing:cubicOut}}"></path>
         <path class="path-area" d={area} in:fade={{duration:3000,delay:1000,easing:cubicInOut}}></path>
         {/if}
     </svg>
